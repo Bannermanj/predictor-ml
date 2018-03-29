@@ -4,10 +4,10 @@ from . import models
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
+        model = models.Team
         fields = (
             'id',
             'name',
             'location',
             'league',
         )
-        model = models.Team
