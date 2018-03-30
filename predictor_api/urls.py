@@ -13,13 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import url, include
 from rest_framework import routers
 from django.contrib import admin
 from predictor_ap import views
 
 router = routers.DefaultRouter()
-router.register(r'api', views.TeamViewSet)
+router.register(r'premierleague', views.PremierLeagueTeamViewSet)
+router.register(r'laliga', views.LaLigaTeamViewSet)
+router.register(r'bundesliga', views.BundesligaTeamViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
