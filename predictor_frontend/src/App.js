@@ -2,65 +2,67 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const list = [
-    {
-        "id": 1,
-        "name": "Tottenham Hotspur",
-        "location": "London, UK",
-        "league": "Premier League"
-    },
-    {
-        "id": 2,
-        "name": "Barcelona",
-        "location": "Barcelona, ES",
-        "league": "La Liga"
-    },
-    {
-        "id": 3,
-        "name": "Liverpool",
-        "location": "Liverpool, UK",
-        "league": "Premier League"
-    },
-    {
-        "id": 4,
-        "name": "Manchester United",
-        "location": "Manchester, UK",
-        "league": "Premier League"
-    },
-    {
-        "id": 5,
-        "name": "Manchester City",
-        "location": "Manchester, UK",
-        "league": "Premier League"
-    }
-]
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import NavBar from './components/NavBar.js';
 
 class App extends Component {
   state = {
-   teams: []
+
+   premierleagueteams: [],
+   laligateams: [],
+   bundesligateams: []
+
  };
 
  async componentDidMount() {
    try {
-     const res = await fetch('http://127.0.0.1:8000/api/');
-     const teams = await res.json();
+     const res = await fetch('http://127.0.0.1:8000/premierleague/');
+     const res2 = await fetch('http://127.0.0.1:8000/laliga/');
+     const res3 = await fetch('http://127.0.0.1:8000/bundesliga/');
+     const premierleagueteams = await res.json();
+     const laligateams = await res2.json();
+     const bundesligateams = await res3.json();
      this.setState({
-       teams
+       premierleagueteams,
+       laligateams,
+       bundesligateams
      });
    } catch (e) {
      console.log(e);
    }
  }
+
   render() {
     return (
       <div>
-        {this.state.teams.map(item => (
-          <div>
-            <h1>{item.name}</h1>
-            <p>{item.location}</p>
-            <p>{item.league}</p>
-          </div>
-        ))}
+        <MuiThemeProvider>
+          <NavBar />
+          <h2> Premier League Teams </h2>
+          {this.state.premierleagueteams.map(item => (
+            <div>
+              <h3>{item.name}</h3>
+              <p>{item.location}</p>
+              <p>{item.league}</p>
+            </div>
+          ))}
+          <h2> La Liga Teams </h2>
+          {this.state.laligateams.map(item => (
+            <div>
+              <h3>{item.name}</h3>
+              <p>{item.location}</p>
+              <p>{item.league}</p>
+            </div>
+          ))}
+          <h2> Bundesliga Teams </h2>
+          {this.state.bundesligateams.map(item => (
+            <div>
+              <h3>{item.name}</h3>
+              <p>{item.location}</p>
+              <p>{item.league}</p>
+            </div>
+          ))}
+        </MuiThemeProvider>
       </div>
     );
   }
