@@ -1,67 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import NavBar from './components/NavBar.js';
 
+import PremierLeagueTeams from './components/PremierLeagueTeams.js';
+import LaLigaTeams from './components/LaLigaTeams.js';
+import BundesligaTeams from './components/BundesligaTeams.js';
+
 class App extends Component {
-  state = {
-
-   premierleagueteams: [],
-   laligateams: [],
-   bundesligateams: []
-
- };
-
- async componentDidMount() {
-   try {
-     const res = await fetch('http://127.0.0.1:8000/premierleague/');
-     const res2 = await fetch('http://127.0.0.1:8000/laliga/');
-     const res3 = await fetch('http://127.0.0.1:8000/bundesliga/');
-     const premierleagueteams = await res.json();
-     const laligateams = await res2.json();
-     const bundesligateams = await res3.json();
-     this.setState({
-       premierleagueteams,
-       laligateams,
-       bundesligateams
-     });
-   } catch (e) {
-     console.log(e);
-   }
- }
-
   render() {
     return (
       <div>
         <MuiThemeProvider>
           <NavBar />
-          <h2> Premier League Teams </h2>
-          {this.state.premierleagueteams.map(item => (
+          <Router>
             <div>
-              <h3>{item.name}</h3>
-              <p>{item.location}</p>
-              <p>{item.league}</p>
+              <button>
+                <Link to="/premier">Premier League Teams</Link>
+              </button>
+              <button>
+                <Link to="/liga">La Liga Teams</Link>
+              </button>
+              <button>
+                <Link to="/bundesliga">Bundesliga Teams</Link>
+              </button>
+              <Route path="/premier" component={PremierLeagueTeams} />
+              <Route path="/liga" component={LaLigaTeams} />
+              <Route path="/bundesliga" component={BundesligaTeams} />
+
             </div>
-          ))}
-          <h2> La Liga Teams </h2>
-          {this.state.laligateams.map(item => (
-            <div>
-              <h3>{item.name}</h3>
-              <p>{item.location}</p>
-              <p>{item.league}</p>
-            </div>
-          ))}
-          <h2> Bundesliga Teams </h2>
-          {this.state.bundesligateams.map(item => (
-            <div>
-              <h3>{item.name}</h3>
-              <p>{item.location}</p>
-              <p>{item.league}</p>
-            </div>
-          ))}
+          </Router>
         </MuiThemeProvider>
       </div>
     );
