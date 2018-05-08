@@ -14,6 +14,18 @@ class PremierLeagueTeam(models.Model):
         """A string of the model"""
         return self.name
 
+class PremierLeagueMatch(models.Model):
+    match_date = models.DateField(max_length=12)
+    home_team = models.CharField(max_length=100)
+    away_team = models.CharField(max_length=100)
+    home_score = models.PositiveSmallIntegerField(default=0)
+    away_score = models.PositiveSmallIntegerField(default=0)
+    result = models.PositiveSmallIntegerField(default=00)
+
+    def __str__(self):
+        """A string of the model"""
+        return self.name
+
 class LaLigaTeam(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)

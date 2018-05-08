@@ -9,6 +9,7 @@ import NavBar from './components/NavBar.js';
 import PremierLeagueTeams from './components/PremierLeagueTeams.js';
 import LaLigaTeams from './components/LaLigaTeams.js';
 import BundesligaTeams from './components/BundesligaTeams.js';
+import PremierLeagueMatches from './components/PremierLeagueMatches.js';
 
 class App extends Component {
   render() {
@@ -27,9 +28,13 @@ class App extends Component {
               <button>
                 <Link to="/bundesliga">Bundesliga Teams</Link>
               </button>
+              <button>
+                <Link to="/premier-matches">Premier League Matches</Link>
+              </button>
               <Route path="/premier" component={PremierLeagueTeams} />
               <Route path="/liga" component={LaLigaTeams} />
               <Route path="/bundesliga" component={BundesligaTeams} />
+              <Route path="/premier-matches" component={PremierLeagueMatches} />
 
             </div>
           </Router>
