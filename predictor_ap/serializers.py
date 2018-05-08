@@ -25,6 +25,20 @@ class PremierLeagueMatchSerializer(serializers.ModelSerializer):
             'result',
         )
 
+class WorldCupMatchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.WorldCupMatch
+        fields = (
+            'id',
+            'match_date',
+            'group',
+            'home_team',
+            'away_team',
+            'home_score',
+            'away_score',
+            'result',
+        )
+
 class LaLigaTeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.LaLigaTeam

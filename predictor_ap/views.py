@@ -5,6 +5,8 @@ from rest_framework import generics, viewsets
 from . import models
 from . import serializers
 
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
+
 class PremierLeagueTeamViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -18,6 +20,13 @@ class PremierLeagueMatchViewSet(viewsets.ModelViewSet):
     """
     queryset = models.PremierLeagueMatch.objects.all()
     serializer_class = serializers.PremierLeagueMatchSerializer
+
+class WorldCupMatchViewSet(viewsets.ModelViewSet, generics.RetrieveUpdateDestroyAPIView):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = models.WorldCupMatch.objects.all()
+    serializer_class = serializers.WorldCupMatchSerializer
 
 class LaLigaTeamViewSet(viewsets.ModelViewSet):
     """

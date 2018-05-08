@@ -110,3 +110,4 @@ venv.bak/
 # Secret Key
 .settings_secret.py
 .secrets.py
+secrets.py

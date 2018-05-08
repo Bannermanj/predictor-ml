@@ -10,6 +10,7 @@ import PremierLeagueTeams from './components/PremierLeagueTeams.js';
 import LaLigaTeams from './components/LaLigaTeams.js';
 import BundesligaTeams from './components/BundesligaTeams.js';
 import PremierLeagueMatches from './components/PremierLeagueMatches.js';
+import WorldCupMatches from './components/WorldCupMatches.js';
 
 class App extends Component {
   render() {
@@ -31,10 +32,14 @@ class App extends Component {
               <button>
                 <Link to="/premier-matches">Premier League Matches</Link>
               </button>
+              <button>
+                <Link to="/worldcup">Premier League Matches</Link>
+              </button>
               <Route path="/premier" component={PremierLeagueTeams} />
               <Route path="/liga" component={LaLigaTeams} />
               <Route path="/bundesliga" component={BundesligaTeams} />
               <Route path="/premier-matches" component={PremierLeagueMatches} />
+              <Route path="/worldcup" component={WorldCupMatches} />
 
             </div>
           </Router>
