@@ -22,6 +22,7 @@ from predictor_ap import views
 router = routers.DefaultRouter()
 router.register(r'premierleague', views.PremierLeagueTeamViewSet)
 router.register(r'premierleaguematch', views.PremierLeagueMatchViewSet)
+router.register(r'worldcupmatch', views.WorldCupMatchViewSet)
 router.register(r'laliga', views.LaLigaTeamViewSet)
 router.register(r'bundesliga', views.BundesligaTeamViewSet)
 

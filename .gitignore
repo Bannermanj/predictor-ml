@@ -106,3 +106,8 @@ venv.bak/
 # Mac OS generated files #
 .DS_Store
 .DS_Store?
+
+# Secret Key
+.settings_secret.py
+.secrets.py
+secrets.py
