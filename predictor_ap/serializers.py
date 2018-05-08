@@ -1,7 +1,7 @@
 from rest_framework import serializers, views, status
 from rest_framework.response import Response
 from . import models
-    
+
 class PremierLeagueTeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PremierLeagueTeam
@@ -10,6 +10,19 @@ class PremierLeagueTeamSerializer(serializers.ModelSerializer):
             'name',
             'location',
             'league',
+        )
+
+class PremierLeagueMatchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PremierLeagueMatch
+        fields = (
+            'id',
+            'match_date',
+            'home_team',
+            'away_team',
+            'home_score',
+            'away_score',
+            'result',
         )
 
 class LaLigaTeamSerializer(serializers.ModelSerializer):

@@ -12,6 +12,13 @@ class PremierLeagueTeamViewSet(viewsets.ModelViewSet):
     queryset = models.PremierLeagueTeam.objects.all()
     serializer_class = serializers.PremierLeagueTeamSerializer
 
+class PremierLeagueMatchViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = models.PremierLeagueMatch.objects.all()
+    serializer_class = serializers.PremierLeagueMatchSerializer
+
 class LaLigaTeamViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
