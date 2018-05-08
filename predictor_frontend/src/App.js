@@ -33,7 +33,7 @@ class App extends Component {
                 <Link to="/premier-matches">Premier League Matches</Link>
               </button>
               <button>
-                <Link to="/worldcup">Premier League Matches</Link>
+                <Link to="/worldcup">World Cup</Link>
               </button>
               <Route path="/premier" component={PremierLeagueTeams} />
               <Route path="/liga" component={LaLigaTeams} />
