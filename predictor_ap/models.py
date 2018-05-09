@@ -27,7 +27,8 @@ class PremierLeagueMatch(models.Model):
         return self.name
 
 class WorldCupMatch(models.Model):
-    match_date = models.DateTimeField(max_length=12)
+    match_date = models.DateField(max_length=12)
+    match_time = models.TimeField(max_length=12)
     group = models.CharField(max_length=25)
     home_team = models.CharField(max_length=100)
     home_team_flag = models.ImageField(default= None)

@@ -31,6 +31,7 @@ class WorldCupMatchSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'match_date',
+            'match_time',
             'group',
             'home_team',
             'away_team',
