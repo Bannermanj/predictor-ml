@@ -13,6 +13,7 @@ html5lib==0.9999999
 Markdown==2.6.11
 numpy==1.14.3
 pandas==0.22.0
+Pillow==5.1.0
 protobuf==3.5.2.post1
 PyJWT==1.6.1
 python-dateutil==2.7.2
