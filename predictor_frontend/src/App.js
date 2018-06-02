@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <div>
         <MuiThemeProvider>
-          <NavBar />
           <Router>
             <div>
               <button>

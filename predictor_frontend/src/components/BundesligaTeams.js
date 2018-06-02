@@ -9,7 +9,7 @@ class BundesligaTeams extends Component {
 
  async componentDidMount() {
    try {
-     const res = await fetch('http://127.0.0.1:8000/bundesliga/');
+     const res = await fetch('http://127.0.0.1:8000/api/bundesliga/');
      const bundesligateams = await res.json();
      this.setState({
        bundesligateams,

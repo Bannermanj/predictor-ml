@@ -2,7 +2,7 @@ from rest_framework import serializers, views, status
 from rest_framework.response import Response
 from . import models
 
-class PremierLeagueTeamSerializer(serializers.ModelSerializer):
+class PremierLeagueTeamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.PremierLeagueTeam
         fields = (
@@ -12,7 +12,7 @@ class PremierLeagueTeamSerializer(serializers.ModelSerializer):
             'league',
         )
 
-class PremierLeagueMatchSerializer(serializers.ModelSerializer):
+class PremierLeagueMatchSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.PremierLeagueMatch
         fields = (
@@ -25,7 +25,7 @@ class PremierLeagueMatchSerializer(serializers.ModelSerializer):
             'result',
         )
 
-class WorldCupMatchSerializer(serializers.ModelSerializer):
+class WorldCupMatchSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WorldCupMatch
         fields = (
@@ -40,7 +40,22 @@ class WorldCupMatchSerializer(serializers.ModelSerializer):
             'result',
         )
 
-class LaLigaTeamSerializer(serializers.ModelSerializer):
+class WorldCupMatch2Serializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.WorldCupMatch
+        fields = (
+            'id',
+            'match_date',
+            'match_time',
+            'group',
+            'home_team',
+            'away_team',
+            'home_score',
+            'away_score',
+            'result',
+        )
+
+class LaLigaTeamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.LaLigaTeam
         fields = (
@@ -50,7 +65,7 @@ class LaLigaTeamSerializer(serializers.ModelSerializer):
             'league',
         )
 
-class BundesligaTeamSerializer(serializers.ModelSerializer):
+class BundesligaTeamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.BundesligaTeam
         fields = (

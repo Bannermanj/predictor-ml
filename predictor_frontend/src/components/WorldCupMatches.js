@@ -7,7 +7,7 @@ class WorldCupMatches extends Component {
 
  async componentDidMount() {
    try {
-     const res = await fetch('http://127.0.0.1:8000/worldcupmatch/');
+     const res = await fetch('http://127.0.0.1:8000/api/worldcupmatch/');
      const worldcupmatches = await res.json();
      this.setState({
        worldcupmatches,

@@ -28,6 +28,13 @@ class WorldCupMatchViewSet(viewsets.ModelViewSet, generics.RetrieveUpdateDestroy
     queryset = models.WorldCupMatch.objects.all()
     serializer_class = serializers.WorldCupMatchSerializer
 
+class WorldCupMatch2ViewSet(viewsets.ModelViewSet, generics.RetrieveUpdateDestroyAPIView):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = models.WorldCupMatch.objects.all()
+    serializer_class = serializers.WorldCupMatch2Serializer
+
 class LaLigaTeamViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.

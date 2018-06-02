@@ -22,13 +22,13 @@ from predictor_ap import views
 router = routers.DefaultRouter()
 router.register(r'premierleague', views.PremierLeagueTeamViewSet)
 router.register(r'premierleaguematch', views.PremierLeagueMatchViewSet)
-router.register(r'worldcupmatch', views.WorldCupMatchViewSet)
-router.register(r'worldcupmatch2', views.WorldCupMatchViewSet)
+router.register(r'worldcupmatch', views.WorldCupMatchViewSet, 'worldcupmatch')
+router.register(r'worldcupmatch2', views.WorldCupMatchViewSet, 'worldcupmatch2')
 router.register(r'laliga', views.LaLigaTeamViewSet)
 router.register(r'bundesliga', views.BundesligaTeamViewSet)
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
 ]

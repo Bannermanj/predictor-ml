@@ -7,7 +7,7 @@ class PremierLeagueTeams extends Component {
 
  async componentDidMount() {
    try {
-     const res = await fetch('http://127.0.0.1:8000/premierleague/');
+     const res = await fetch('http://localhost:8000/api/premierleague/');
      const premierleagueteams = await res.json();
      this.setState({
        premierleagueteams,
