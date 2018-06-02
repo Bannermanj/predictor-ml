@@ -9,7 +9,7 @@ class LaLigaTeams extends Component {
 
  async componentDidMount() {
    try {
-     const res = await fetch('http://127.0.0.1:8000/laliga/');
+     const res = await fetch('http://127.0.0.1:8000/api/laliga/');
      const laligateams = await res.json();
      this.setState({
        laligateams,
